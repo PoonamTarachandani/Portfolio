@@ -1,0 +1,165 @@
+﻿@model IEnumerable<Portfolio.Models.Project>
+@{
+    ViewBag.Title = "Portfolio";
+}
+<section id="home">
+    <div class="overlay">
+        <div class="background">
+            <div class="home-wrap text-center ">
+                <h1>
+                    Hi I'm Poonam Tarachandani
+                    <span style="color:black;font-weight:bolder;">Junior Developer</span>
+                </h1>
+            </div>
+            <div class="home-wrap1 text-center ">
+                <h1>
+                    <span style="color:black;font-weight:bolder;">Will write code for coffee..</span>
+                </h1>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section id="about-me">
+
+    <div class="container">
+        <div class="col-xs-12 col-md-4">
+            <img src="~/Content/images/portfolio/MyPicture.jpg" alt="Lina" class="img-circle img-responsive" />
+            <div>
+                <h2 class="name">
+                    Poonam Tarachandani
+                    <span class="text-center">Junior Developer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                </h2>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-8 intro-text ">
+            <hr class="h2-spacer" />
+            <div class="clearfix"></div>
+            <h2>ABOUT ME</h2>
+            <p>I am Junior Developer seeking to establish my career in the IT industry.I was born and raised in India. Next, I moved to Dubai to begin my career in Accounting. Finally,I moved to the United States,where i worked as diamond grader. This has given me the ability to adapt in any situation with ease. I am fluent in English, Hindi, Sindhi & Gujarati. </p>
+            <p>In Febuary 2016,I began my coding education at We Can Code IT. At We Can Code IT I have developed my programming skills. </p>
+            <a style="font-size:medium" href="https://github.com/PoonamTarachandani">https://github.com/PoonamTarachandani</a>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="personal-info">
+            <div class="col-xs-12 col-md-6">
+                <div class="personal-title">
+                    <h3>Personal information</h3>
+                </div>
+                <div class="personal-description">
+                    <p><strong>About me: </strong>Junior Developer</p>
+                    <p><strong>Hobbies: </strong>Listening to music & Travelling </p>
+                    <p><strong>Education: </strong>BBA Accounting, Certified Software Engineer</p>
+                    <p><strong>Skills: </strong>C#, CSS, MVC, jQuery, HTML, SQL Server, ASP .Net, GitHub.</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 skill-bars">
+                <div class="personal-title">
+                    <h3>Programming Skills</h3>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        <span class="sr-only">60% Complete</span>
+                    </div>
+                    <span class="progress-type">HTML / HTML5</span>
+                    <span class="progress-completed">60%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                        <span class="sr-only">70% Complete (success)</span>
+                    </div>
+                    <span class="progress-type">C#</span>
+                    <span class="progress-completed">70%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                        <span class="sr-only">60% Complete (warning)</span>
+                    </div>
+                    <span class="progress-type">JavaScript / jQuery</span>
+                    <span class="progress-completed">60%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                        <span class="sr-only">80% Complete (danger)</span>
+                    </div>
+                    <span class="progress-type">CSS / CSS3</span>
+                    <span class="progress-completed">80%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        <span class="sr-only">60% Complete</span>
+                    </div>
+                    <span class="progress-type">MVC</span>
+                    <span class="progress-completed">60%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                        <span class="sr-only">60% Complete</span>
+                    </div>
+                    <span class="progress-type">SQL Server</span>
+                    <span class="progress-completed">60%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+    @{
+        int i = 0;
+    }
+    @foreach (var project in Model)
+    {
+        <div class="content-section">
+            <div class="container">
+                @if (i == 0)
+                {
+                    i++;
+                    <div class="col-xs-12">
+                        <hr class="h2-spacer" />
+                        <div class="clearfix"></div>
+                        <h2>PORTFOLIO</h2>
+                    </div>
+                }
+                <div class="col-lg-5 col-sm-6">
+                    <h3>@project.ProjectName</h3>
+                    <hr class="h3-spacer" />
+                    <p>@project.ProjectDescription</p>
+                    <a href="@project.GitHubLink"> <span class="project-link">Go To GitHub</span></a>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6 project">
+                    <a href="@Url.Content(project.ProjectScreenShot)">
+                        <img class="center-block img-project img-responsive" src="@Url.Content(project.ProjectScreenShot)" alt="">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    }
+</section>
+<section id="contact">
+    <div class="overlay">
+        <div class="container">
+            <div class="col-xs-12  text-left">
+                <hr class="h2-spacer" />
+                <div class="clearfix"></div>
+                <h2>Contact Me</h2>
+            </div>
+            <div class="ContactNow">
+                <p style="color:white;">
+                    Poonam Tarachandani.<br />
+                    1701 E,12th Street,<br />Cleveland-OH,<br />44114.<br />
+                    Cell:787-692-7843.<br />
+                    Email:p.k.tarachandani@gmail.com<br />
+                    LinkedIn:<a style="color:white" href="https://www.linkedin.com/in/poonamtarachandani">https://www.linkedin.com/in/poonamtarachandani</a>
+                    <br />
+                    GitHub:<a style="color:white" href="https://github.com/PoonamTarachandani">https://github.com/PoonamTarachandani</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
